@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+
+# local test artifacts (the repo ships with a generated sample that
+# the CI will overwrite on its first real run)
+output/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# do NOT commit the real clash.yaml before the first real CI run? 
+# It is fine to commit the generated sample — CI only overwrites when
+# a new generation differs.

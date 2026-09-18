@@ -1,0 +1,53 @@
+# =============================================================================
+# 免费节点来源配置 (sources.yaml)
+# -----------------------------------------------------------------------------
+# 每个来源必须是你自己确认“公开、合法、可访问”的订阅 URL。
+# 不要在这里填写任何 token / 密码 / 个人 cookie。
+#
+# 字段:
+#   name:    唯一标识(字母/数字/下划线)
+#   url:     订阅源 URL。可以是:
+#              - 一个返回 Clash/Mihomo YAML 的 URL
+#              - 一个返回 base64 编码 Clash YAML 的 URL
+#              - 一个返回 ss:// vmess:// vless:// trojan:// 等 link 列表的 URL
+#   enabled: true/false
+#   type:    auto (自动识别格式)
+#
+# 一个来源失败 -> 自动跳过, 不会让整个 Actions 失败。
+# 如果所有来源都失败或有效节点不足 -> 保留旧配置, 输出 "Update skipped"。
+#
+# 下面默认列出了几个常见的公开免费节点共享源, 它们来自公开的开源
+# 聚合仓库, 不保证长期可用; 失效时会被自动跳过。
+# 你可以随时增删/替换 url, 但务必只填你自己判断合法可信的地址。
+# =============================================================================
+sources:
+  # Clash YAML / VLESS+Trojan+Hysteria2 + sing-box 自动刷新
+  - name: au1rxx_clash
+    url: "https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/clash.yaml"
+    enabled: true
+    type: auto
+
+  # 多协议(VMess/Trojan/Hysteria) 聚合, 每30分钟刷新
+  - name: chengaopan_automerger
+    url: "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml"
+    enabled: true
+    type: auto
+
+  # 通用 Clash 订阅
+  - name: anaer_sub
+    url: "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    enabled: true
+    type: auto
+
+  # NiceVPN 聚合(可能偶尔体积很大, 保留为备选)
+  - name: nicevpn
+    url: "https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/Clash.yaml"
+    enabled: true
+    type: auto
+
+  # 预留示例, 默认关闭。你可以把下面这条改成你自己的订阅 URL,
+  # 并设置 enabled: true
+  - name: my_own_source
+    url: "https://example.com/your-clash-subscription.yaml"
+    enabled: false
+    type: auto
