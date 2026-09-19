@@ -34,6 +34,10 @@ def _proxy_dict(n: dict) -> dict:
         "username",
     }
     d = {k: v for k, v in d.items() if k in allowed}
+    # drop empty-string optional fields (empty vless flow breaks mihomo startup)
+    for key in ("flow", "sni", "plugin", "obfs", "username", "alterId"):
+        if d.get(key) == "":
+            d.pop(key, None)
     # for ss: if no method, default to chacha20-ietf-poly1305
     if d.get("type") == "ss" and "method" not in d:
         d["method"] = "chacha20-ietf-poly1305"
@@ -108,6 +112,12 @@ def build_config(
         "mode": "rule",
         "log-level": "info",
         "external-controller": "127.0.0.1:9090",
+        "tproxy": {"mode": "tcp-only"},
+        "sniffer": {
+            "enable": True,
+            "sniffing": {"domains": ["example.com"]},
+            "skip-domain": ["*.local"],
+        },
         "proxies": proxy_dicts,
         "proxy-groups": groups,
         "rules": rules,
