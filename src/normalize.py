@@ -35,8 +35,14 @@ def _fields_for_type(ptype: str, n: dict) -> dict:
         "port": int(n["port"]) if "port" in n else None,
     }
     if ptype in ("ss",):
+        # cipher: keep real value only; never invent one (mihomo requires it for ss)
+        cipher = str(n.get("cipher") or "").strip()
+        if cipher:
+            base["cipher"] = cipher
+        # method defaults only when the link genuinely omits it (ss links without
+        # a cipher param mean the server default; mihomo accepts method-only fallback)
         base["method"] = n.get("method") or "chacha20-ietf-poly1305"
-        base["password"] = n.get("password") or n.get("cipher") or ""
+        base["password"] = str(n.get("password") or "").strip()
         if n.get("network"):
             base["network"] = n["network"]
         if n.get("plugin", "") == "obfs" or n.get("plugin-opts"):

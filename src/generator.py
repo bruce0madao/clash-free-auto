@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import logging
 import yaml
+from .validator import schema_ok  # final safety gate
 
 log = logging.getLogger("cfa.generator")
 
@@ -27,7 +28,7 @@ def _proxy_dict(n: dict) -> dict:
     # ensure keys mihomo actually knows (drop extras that may confuse)
     allowed = {
         "name", "type", "server", "port",
-        "method", "password", "network", "plugin", "plugin-opts",
+        "method", "cipher", "password", "network", "plugin", "plugin-opts",
         "uuid", "alterId", "security", "sni", "skip-cert-verify",
         "flow", "reality-pub", "fingerprint", "ws-headers", "grpc-service-name",
         "auth", "protocol", "disable-insecure-tls", "obfs", "obfs-password",
@@ -59,7 +60,23 @@ def build_config(
     group_name lets caller override which proxy to wire into SELECT/AUTO.
     Defaults to using the `proxies` list itself.
     """
-    proxy_dicts = [_proxy_dict(n) for n in proxies]
+    # Final safety gate: every proxy must pass the strict per-protocol schema
+    # check before it can reach the generated config. Nodes failing here are
+    # dropped and counted in the returned `dropped` key.
+    passed, dropped = [], []
+    for n in proxies:
+        ok, reason = schema_ok(n)
+        if ok:
+            passed.append(n)
+        else:
+            dropped.append({"name": n.get("name"), "type": n.get("type"), "reason": reason})
+    if dropped:
+        log.warning("generator dropped %d invalid nodes: %s", len(dropped),
+                    "; ".join("%s(%s): %s" % (d["name"], d["type"], d["reason"]) for d in dropped[:5]))
+    proxy_dicts = [_proxy_dict(n) for n in passed]
+    # attach drop stats for status.json
+    global _dropped
+    _dropped = dropped
     names = [p["name"] for p in proxy_dicts]
 
     # proxy-groups:
@@ -140,10 +157,18 @@ def render_yaml(cfg: dict) -> str:
     return yaml.safe_dump(cfg, allow_unicode=True, default_flow_style=False, sort_keys=False)
 
 
-def write_clash_yaml(cfg: dict, out_path: str) -> bool:
-    """Write clash.yaml. Caller must have verified cfg is non-empty first.
+_dropped: list[dict] = []
 
-    Returns True if written, False if content was empty.
+
+def get_dropped() -> list[dict]:
+    """Nodes rejected by the generator's schema gate in the last build_config()."""
+    return list(_dropped)
+
+
+def write_clash_yaml(cfg: dict, out_path: str) -> bool:
+    """Write clash.yaml after a final schema re-check.
+
+    Returns True if written, False if content was empty or failed validation.
     """
     proxies = cfg.get("proxies") or []
     if not proxies:
@@ -156,7 +181,19 @@ def write_clash_yaml(cfg: dict, out_path: str) -> bool:
     except Exception as e:
         log.error("generated yaml does not parse: %s", e)
         return False
+    # Final re-verify: re-load the written text and re-check every proxy
+    # against the per-protocol schema before declaring success.
+    try:
+        reloaded = yaml.safe_load(text)
+        for p in (reloaded.get("proxies") or []):
+            ok, reason = schema_ok(p)
+            if not ok:
+                log.error("generated proxy failed schema: %s -> %s", p.get("name"), reason)
+                return False
+    except Exception as e:
+        log.error("final schema re-check failed: %s", e)
+        return False
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(text)
-    log.info("wrote %s with %d proxies", out_path, len(proxies))
+    log.info("wrote %s with %d proxies (schema-verified)", out_path, len(proxies))
     return True

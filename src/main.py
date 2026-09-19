@@ -21,7 +21,7 @@ from .normalize import normalize
 from .deduplicate import dedupe
 from .validator import validate
 from .scoring import score_nodes, keep_nodes, MIN_KEEP, MIN_KEEP_TCP
-from .generator import build_config, write_clash_yaml
+from .generator import build_config, write_clash_yaml, get_dropped
 
 log = logging.getLogger("cfa.main")
 
@@ -100,6 +100,10 @@ def run(do_commit: bool = True) -> int:
 
     # 8. generate
     cfg = build_config(kept)
+    schema_dropped = len(get_dropped())
+    if schema_dropped:
+        status["invalid_schema_nodes"] = schema_dropped
+        log.info("schema gate dropped %d invalid nodes before final config", schema_dropped)
     if not write_clash_yaml(cfg, CLASH_OUT):
         status["error"] = "generator refused to write empty/broken config"
         _write_status(status)

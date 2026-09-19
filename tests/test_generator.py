@@ -24,6 +24,7 @@ def _sample_nodes():
             "server": "1.1.1.1",
             "port": 10443,
             "method": "chacha20-ietf-poly1305",
+            "cipher": "chacha20-ietf-poly1305",
             "password": "abc",
             "_source": "x",
             "_score": 80,
