@@ -9,7 +9,7 @@ $raw   = "https://raw.githubusercontent.com/bruce0madao/clash-free-auto/master/o
 $tmp   = Join-Path $env:TEMP "cfa-phone-clash.yaml"
 $metaPkg = "com.github.metacubex.clash.meta"
 $metaFile = "/sdcard/Android/data/$metaPkg/files/clash-free-auto.yaml"
-$dlFile   = "/sdcard/Download/clash-free-auto.yaml"
+$dlFile   = "/sdcard/Download/自动免费节点-GH.yaml"
 
 function Log($m) { Write-Host ("[" + (Get-Date -f HH:mm:ss) + "] " + $m) }
 
@@ -50,10 +50,11 @@ Log "pushed to phone"
 & $adb shell "am start -n $metaPkg/com.github.kr328.clash.MainActivity" | Out-Null
 Start-Sleep -Seconds 2
 $enc = "自动免费节点(GH)"
-$encUrl = "clash://install-config?url=local%3A%2F%2F%2Fsdcard%2FAndroid%2Fdata%2F$metaPkg%2Ffiles%2Fclash-free-auto.yaml&name=" + ([uri]::EscapeDataString($enc))
+$dlFileEscaped = [uri]::EscapeDataString($dlFile)
+$encUrl = "clash://install-config?url=$dlFileEscaped&name=" + ([uri]::EscapeDataString($enc))
 & $adb shell "am start -a android.intent.action.VIEW -d '$encUrl' $metaPkg" | Out-Null
 Start-Sleep -Seconds 3
-Log "import deep link triggered"
+Log "import deep link triggered (file in /sdcard/Download, reachable from phone file manager)"
 
 # 6) Verify: Meta's external file is now the fixed version (gstatic present)
 $probe = & $adb shell "grep -ac gstatic $metaFile 2>/dev/null; grep -ac 'name:' $metaFile 2>/dev/null"
