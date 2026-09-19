@@ -56,5 +56,10 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "chore: auto update clash config"
-            git push
+            # retry-with-pull loop: safe even when two Actions runs overlap
+            for i in 1 2 3; do
+              if git push; then break; fi
+              echo "push rejected (run $i), re-pulling and rebasing..."
+              git pull --rebase
+            done
           fi
