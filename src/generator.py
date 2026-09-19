@@ -70,14 +70,13 @@ def build_config(
             "name": "SELECT",
             "type": "select",
             "proxies": ["AUTO", "DIRECT", *all_in],
-            "url": "http://127.0.0.1:33000/generate",  # mihomo test endpoint
-            "interval": 300,
         },
         {
             "name": "AUTO",
             "type": "url-test",
             "proxies": auto_proxy or [],
-            "url": "http://127.0.0.1:33000/generate",
+            # standard mihomo test URL (resolves for both Meta and Verge)
+            "url": "http://www.gstatic.com/generate_204",
             "interval": 300,
             "tolerance": 50,
         },
