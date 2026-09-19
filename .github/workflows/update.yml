@@ -63,3 +63,9 @@ jobs:
               git pull --rebase
             done
           fi
+
+      - name: Notify via WxPusher
+        env:
+          CFA_WXPUSHER_SPT: "SPT_0jSa4BhaRevCwrjNRQen3Y6yGiff"
+        run: python notify_wxpusher.py
+
