@@ -22,12 +22,6 @@ proxies:
   port: 9087
   method: chacha20-ietf-poly1305
   password: S7Cn18rOhJ0IijMltSh7/rrf2mrd/RsRjOEINjXteFQ=
-- name: shadowsocks-1358022294
-  type: ss
-  server: 36.224.185.173
-  port: 50099
-  method: chacha20-ietf-poly1305
-  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
 - name: shadowsocks-468218514
   type: ss
   server: 107.151.182.197
@@ -46,12 +40,24 @@ proxies:
   port: 8080
   method: chacha20-ietf-poly1305
   password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: shadowsocks-1382552315
+  type: ss
+  server: 141.144.202.239
+  port: 45819
+  method: chacha20-ietf-poly1305
+  password: BH2ePK1/aJCB/jX1/59TaPxJnS2ZCHrqv/rsEV3Hqkc=
 - name: shadowsocks-1381816946
   type: ss
   server: 13.36.169.164
   port: 443
   method: chacha20-ietf-poly1305
   password: amazonskr05
+- name: shadowsocks-1382489667
+  type: ss
+  server: 107.174.88.128
+  port: 443
+  method: chacha20-ietf-poly1305
+  password: 063aee2ed1124285b5d8a8b049e24cba
 - name: shadowsocks-1375192887
   type: ss
   server: 195.133.5.102
@@ -142,12 +148,6 @@ proxies:
   port: 80
   method: chacha20-ietf-poly1305
   password: 3eOFeNssde7PYYMv
-- name: shadowsocks-1382489667
-  type: ss
-  server: 107.174.88.128
-  port: 443
-  method: chacha20-ietf-poly1305
-  password: 063aee2ed1124285b5d8a8b049e24cba
 - name: shadowsocks-921920790
   type: ss
   server: 82.38.31.175
@@ -264,12 +264,18 @@ proxies:
   password: mitivpn
   sni: ssl.fastly.com
   skip-cert-verify: false
-- name: trojan-1114699856
+- name: trojan-813920947
+  type: trojan
+  server: 161.34.39.108
+  port: 443
+  password: tsuchiya
+  sni: 161.34.39.108
+  skip-cert-verify: true
+- name: trojan-2493847
   type: trojan
   server: 119.246.1.143
   port: 443
   password: BxceQaOe
-  sni: t.me
   skip-cert-verify: true
 - name: vless-1038685483
   type: vless
@@ -295,14 +301,6 @@ proxies:
   flow: ''
   security: tls
   network: tcp
-- name: vless-1366982201
-  type: vless
-  server: 47.80.14.8
-  port: 443
-  uuid: 581cb8c3-dadb-4e10-a18b-5e79bfe7bd93
-  flow: xtls-rprx-vision
-  security: tls
-  network: tcp
 - name: vless-765514213
   type: vless
   server: 162.128.157.164
@@ -319,14 +317,6 @@ proxies:
   flow: xtls-rprx-vision
   security: tls
   network: tcp
-- name: vless-1343028655
-  type: vless
-  server: 150.241.102.181
-  port: 443
-  uuid: d7cad038-0c3f-4cce-8f8a-36464aaf66c0
-  flow: ''
-  security: tls
-  network: grpc
 - name: vless-1107791215
   type: vless
   server: 154.31.114.248
@@ -391,14 +381,6 @@ proxies:
   flow: ''
   security: tls
   network: tcp
-- name: vless-1298620596
-  type: vless
-  server: 45.149.172.74
-  port: 443
-  uuid: 77dc177b-79d9-49ac-92e1-2f1011faa5e3
-  flow: xtls-rprx-vision
-  security: tls
-  network: raw
 - name: vless-425785806
   type: vless
   server: 169.40.42.212
@@ -511,14 +493,23 @@ proxies:
   flow: xtls-rprx-vision
   security: tls
   network: tcp
-- name: vless-1163061815
+- name: vless-975967538
   type: vless
-  server: 103.75.119.126
-  port: 2087
-  uuid: 731f177e-00aa-480c-b935-661456139a32
+  server: 162.159.254.3
+  port: 443
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   flow: ''
   security: tls
+  skip-cert-verify: false
   network: ws
+- name: vless-1365265781
+  type: vless
+  server: 45.149.172.74
+  port: 443
+  uuid: 77dc177b-79d9-49ac-92e1-2f1011faa5e3
+  flow: xtls-rprx-vision
+  security: tls
+  network: tcp
 - name: vless-1281034087
   type: vless
   server: 45.149.172.80
@@ -543,6 +534,14 @@ proxies:
   flow: xtls-rprx-vision
   security: tls
   network: tcp
+- name: vless-1265443327
+  type: vless
+  server: 150.241.102.181
+  port: 443
+  uuid: d7cad038-0c3f-4cce-8f8a-36464aaf66c0
+  flow: ''
+  security: tls
+  network: grpc
 - name: vless-1124370652
   type: vless
   server: 35.221.158.209
@@ -551,14 +550,6 @@ proxies:
   flow: xtls-rprx-vision
   security: tls
   network: raw
-- name: vless-1051696587
-  type: vless
-  server: 172.235.43.210
-  port: 53957
-  uuid: 7ab29f89-6eef-4171-b232-fc4f580ad31b
-  flow: xtls-rprx-vision
-  security: tls
-  network: tcp
 - name: vless-721523038
   type: vless
   server: 3.39.4.109
@@ -580,22 +571,6 @@ proxies:
   server: 3.0.111.82
   port: 12972
   uuid: 814bd064-544d-4255-a070-5705c03f6da9
-  flow: xtls-rprx-vision
-  security: tls
-  network: tcp
-- name: vless-1293519067
-  type: vless
-  server: hydra.yokkastars.com
-  port: 40443
-  uuid: 405b964e-a2d2-454f-aaaa-711cc218897c
-  flow: xtls-rprx-vision
-  security: tls
-  network: tcp
-- name: vless-1204715722
-  type: vless
-  server: 51.81.203.63
-  port: 443
-  uuid: cb2dbb6a-a1ea-4023-9ace-6466cee57241
   flow: xtls-rprx-vision
   security: tls
   network: tcp
@@ -687,11 +662,36 @@ proxies:
   flow: ''
   security: tls
   network: ws
+- name: vless-1356852382
+  type: vless
+  server: 172.64.154.8
+  port: 2095
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  flow: ''
+  security: tls
+  network: ws
+- name: vless-1356852378
+  type: vless
+  server: 162.159.24.131
+  port: 2095
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  flow: ''
+  security: tls
+  network: ws
 - name: vless-1360178257
   type: vless
   server: 104.18.189.153
   port: 443
   uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  flow: ''
+  security: tls
+  skip-cert-verify: false
+  network: ws
+- name: vless-975999344
+  type: vless
+  server: 172.67.156.147
+  port: 443
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   flow: ''
   security: tls
   skip-cert-verify: false
@@ -731,11 +731,12 @@ proxy-groups:
   - shadowsocks-218
   - shadowsocks-1381757783
   - shadowsocks-1380705129
-  - shadowsocks-1358022294
   - shadowsocks-468218514
   - shadowsocks-1381800264
   - shadowsocks-713934491
+  - shadowsocks-1382552315
   - shadowsocks-1381816946
+  - shadowsocks-1382489667
   - shadowsocks-1375192887
   - shadowsocks-11026
   - shadowsocks-1368926254
@@ -751,7 +752,6 @@ proxy-groups:
   - shadowsocks-1251465987
   - shadowsocks-188
   - shadowsocks-696780669
-  - shadowsocks-1382489667
   - shadowsocks-921920790
   - shadowsocks-1251465971
   - shadowsocks-1343029615
@@ -771,14 +771,13 @@ proxy-groups:
   - trojan-1359874475
   - trojan-1334107990
   - trojan-1378601447
-  - trojan-1114699856
+  - trojan-813920947
+  - trojan-2493847
   - vless-1038685483
   - vless-1358896471
   - vless-1260285702
-  - vless-1366982201
   - vless-765514213
   - vless-1014145882
-  - vless-1343028655
   - vless-1107791215
   - vless-1262373571
   - vless-1108730484
@@ -787,7 +786,6 @@ proxy-groups:
   - vless-1028227126
   - vless-1128668021
   - vless-1260284733
-  - vless-1298620596
   - vless-425785806
   - vless-553326974
   - vless-197583466
@@ -802,17 +800,16 @@ proxy-groups:
   - vless-335170842
   - vless-10287041
   - vless-1200055532
-  - vless-1163061815
+  - vless-975967538
+  - vless-1365265781
   - vless-1281034087
   - vless-1380705127
   - vless-1292918775
+  - vless-1265443327
   - vless-1124370652
-  - vless-1051696587
   - vless-721523038
   - vless-1062394219
   - vless-522223663
-  - vless-1293519067
-  - vless-1204715722
   - vless-199316746
   - vless-14962
   - vless-262814486
@@ -824,7 +821,10 @@ proxy-groups:
   - vless-1373855604
   - vless-814233101
   - vless-1350368790
+  - vless-1356852382
+  - vless-1356852378
   - vless-1360178257
+  - vless-975999344
   - vless-1130262811
   - vless-813407624
   - vless-1381769960
@@ -834,11 +834,12 @@ proxy-groups:
   - shadowsocks-218
   - shadowsocks-1381757783
   - shadowsocks-1380705129
-  - shadowsocks-1358022294
   - shadowsocks-468218514
   - shadowsocks-1381800264
   - shadowsocks-713934491
+  - shadowsocks-1382552315
   - shadowsocks-1381816946
+  - shadowsocks-1382489667
   - shadowsocks-1375192887
   - shadowsocks-11026
   - shadowsocks-1368926254
@@ -854,7 +855,6 @@ proxy-groups:
   - shadowsocks-1251465987
   - shadowsocks-188
   - shadowsocks-696780669
-  - shadowsocks-1382489667
   - shadowsocks-921920790
   - shadowsocks-1251465971
   - shadowsocks-1343029615
@@ -874,14 +874,13 @@ proxy-groups:
   - trojan-1359874475
   - trojan-1334107990
   - trojan-1378601447
-  - trojan-1114699856
+  - trojan-813920947
+  - trojan-2493847
   - vless-1038685483
   - vless-1358896471
   - vless-1260285702
-  - vless-1366982201
   - vless-765514213
   - vless-1014145882
-  - vless-1343028655
   - vless-1107791215
   - vless-1262373571
   - vless-1108730484
@@ -890,7 +889,6 @@ proxy-groups:
   - vless-1028227126
   - vless-1128668021
   - vless-1260284733
-  - vless-1298620596
   - vless-425785806
   - vless-553326974
   - vless-197583466
@@ -905,17 +903,16 @@ proxy-groups:
   - vless-335170842
   - vless-10287041
   - vless-1200055532
-  - vless-1163061815
+  - vless-975967538
+  - vless-1365265781
   - vless-1281034087
   - vless-1380705127
   - vless-1292918775
+  - vless-1265443327
   - vless-1124370652
-  - vless-1051696587
   - vless-721523038
   - vless-1062394219
   - vless-522223663
-  - vless-1293519067
-  - vless-1204715722
   - vless-199316746
   - vless-14962
   - vless-262814486
@@ -927,7 +924,10 @@ proxy-groups:
   - vless-1373855604
   - vless-814233101
   - vless-1350368790
+  - vless-1356852382
+  - vless-1356852378
   - vless-1360178257
+  - vless-975999344
   - vless-1130262811
   - vless-813407624
   - vless-1381769960
