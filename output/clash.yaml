@@ -22,6 +22,12 @@ proxies:
   port: 9087
   method: chacha20-ietf-poly1305
   password: S7Cn18rOhJ0IijMltSh7/rrf2mrd/RsRjOEINjXteFQ=
+- name: shadowsocks-1358022294
+  type: ss
+  server: 36.224.185.173
+  port: 50099
+  method: chacha20-ietf-poly1305
+  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
 - name: shadowsocks-468218514
   type: ss
   server: 107.151.182.197
@@ -264,13 +270,6 @@ proxies:
   password: mitivpn
   sni: ssl.fastly.com
   skip-cert-verify: false
-- name: trojan-813920947
-  type: trojan
-  server: 161.34.39.108
-  port: 443
-  password: tsuchiya
-  sni: 161.34.39.108
-  skip-cert-verify: true
 - name: trojan-2493847
   type: trojan
   server: 119.246.1.143
@@ -731,6 +730,7 @@ proxy-groups:
   - shadowsocks-218
   - shadowsocks-1381757783
   - shadowsocks-1380705129
+  - shadowsocks-1358022294
   - shadowsocks-468218514
   - shadowsocks-1381800264
   - shadowsocks-713934491
@@ -771,7 +771,6 @@ proxy-groups:
   - trojan-1359874475
   - trojan-1334107990
   - trojan-1378601447
-  - trojan-813920947
   - trojan-2493847
   - vless-1038685483
   - vless-1358896471
@@ -834,6 +833,7 @@ proxy-groups:
   - shadowsocks-218
   - shadowsocks-1381757783
   - shadowsocks-1380705129
+  - shadowsocks-1358022294
   - shadowsocks-468218514
   - shadowsocks-1381800264
   - shadowsocks-713934491
@@ -874,7 +874,6 @@ proxy-groups:
   - trojan-1359874475
   - trojan-1334107990
   - trojan-1378601447
-  - trojan-813920947
   - trojan-2493847
   - vless-1038685483
   - vless-1358896471
