@@ -15,6 +15,9 @@ on:
     # every 6 hours, UTC
     - cron: "0 */6 * * *"
   workflow_dispatch: {}
+  # re-run on pushes so the pipeline also self-heals right after each commit
+  push:
+    branches: [master]
 
 permissions:
   contents: write
