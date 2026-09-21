@@ -130,11 +130,6 @@ def build_config(
         "log-level": "info",
         "external-controller": "127.0.0.1:9090",
         "tproxy": {"mode": "tcp-only"},
-        "sniffer": {
-            "enable": True,
-            "sniffing": {"domains": ["example.com"]},
-            "skip-domain": ["*.local"],
-        },
         "proxies": proxy_dicts,
         "proxy-groups": groups,
         "rules": rules,
