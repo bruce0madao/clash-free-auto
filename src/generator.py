@@ -17,7 +17,7 @@ from .validator import schema_ok  # final safety gate
 
 log = logging.getLogger("cfa.generator")
 
-GROUP_NAMES = ["SELECT", "AUTO", "DIRECT"]
+GROUP_NAMES = ["🚀 每日免费", "🚀 自动最快", "直达"]
 DEFAULT_MAX_IN_GROUP = 100
 
 
@@ -88,12 +88,12 @@ def build_config(
 
     groups = [
         {
-            "name": "SELECT",
+            "name": "🚀 每日免费",
             "type": "select",
-            "proxies": ["AUTO", "DIRECT", *all_in],
+            "proxies": ["🚀 自动最快", "直达", *all_in],
         },
         {
-            "name": "AUTO",
+            "name": "🚀 自动最快",
             "type": "url-test",
             "proxies": auto_proxy or [],
             # standard mihomo test URL (resolves for both Meta and Verge)
@@ -102,7 +102,7 @@ def build_config(
             "tolerance": 50,
         },
         {
-            "name": "DIRECT",
+            "name": "直达",
             "type": "direct",
         },
     ]
@@ -112,7 +112,7 @@ def build_config(
     # GEOIP,CN,DIRECT  is a single rule; below it we add placeholders
     # that can be uncommented to route specific domains via AUTO.
     rules = [
-        "GEOIP,CN,DIRECT,no-resolve",
+        "GEOIP,CN,直达,no-resolve",
         # "DOMAIN-SUFFIX,google.com,SELECT",
         # "DOMAIN-SUFFIX,openai.com,SELECT",
         # "DOMAIN-SUFFIX,chatgpt.com,SELECT",
@@ -120,7 +120,7 @@ def build_config(
         # "DOMAIN-SUFFIX,claude.ai,SELECT",
         # "DOMAIN-SUFFIX,x.com,SELECT",
         # "DOMAIN-SUFFIX,github.com,SELECT",
-        "MATCH,AUTO",
+        "MATCH,🚀 自动最快",
     ]
 
     cfg = {

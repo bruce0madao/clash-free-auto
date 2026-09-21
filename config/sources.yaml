@@ -51,3 +51,9 @@ sources:
     url: "https://example.com/your-clash-subscription.yaml"
     enabled: false
     type: auto
+
+  # Telegram 电报群每日免费节点 (t.me/xrayfree, 固定链接每天更新)
+  - name: TG-xrayfree
+    url: "https://www.xrayvip.com/free.yaml"
+    enabled: true
+    type: auto
