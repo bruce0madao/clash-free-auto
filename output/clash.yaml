@@ -230,6 +230,13 @@ proxies:
   password: BxceQaOe
   sni: 100.42.228.109
   skip-cert-verify: true
+- name: trojan-1421449505
+  type: trojan
+  server: 199.232.78.101
+  port: 443
+  password: MiTIVPN
+  sni: ssl.fastly.com
+  skip-cert-verify: false
 - name: trojan-210032272
   type: trojan
   server: 161.34.39.108
@@ -251,6 +258,13 @@ proxies:
   password: 3c6d1933-b22a-484b-ac8a-63e24f5fba75
   sni: nat11.outsidemyheart.space
   skip-cert-verify: true
+- name: trojan-1426049700
+  type: trojan
+  server: ez-3e9698.ezaccess1ec1f0c.workers.dev
+  port: 443
+  password: c0c17d1da2c2c9299d5094c8
+  sni: ez-3e9698.ezaccess1ec1f0c.workers.dev
+  skip-cert-verify: false
 - name: trojan-279496851
   type: trojan
   server: 154.90.62.70
@@ -263,12 +277,26 @@ proxies:
   port: 119
   password: skynet
   skip-cert-verify: false
+- name: trojan-1425838925
+  type: trojan
+  server: 64.120.95.203
+  port: 119
+  password: skynet
+  sni: cloud.lakshan.us
+  skip-cert-verify: false
 - name: trojan-1425248131
   type: trojan
   server: nl2.pleiades.codes
   port: 2053
   password: d5bee0afdbc500b8cda02d80
   skip-cert-verify: true
+- name: trojan-1425475355
+  type: trojan
+  server: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
+  port: 443
+  password: TsX0XJKMa2h$CbKr0k
+  sni: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
+  skip-cert-verify: false
 - name: vless-1344232343
   type: vless
   server: 154.31.114.248
@@ -362,14 +390,6 @@ proxies:
   uuid: 700a7a0e-3f27-406c-81d1-aa1abe411af8
   security: tls
   network: raw
-- name: vless-1014144004
-  type: vless
-  server: 35.221.158.209
-  port: 32981
-  uuid: 41b96ee9-ee5e-455f-9753-187a9dead97a
-  flow: xtls-rprx-vision
-  security: tls
-  network: tcp
 - name: vless-1413491757
   type: vless
   server: 185.227.154.226
@@ -430,6 +450,30 @@ proxies:
   server: 104.199.134.231
   port: 28364
   uuid: 3a62a0c2-ba80-43a9-b757-9aca88b0552e
+  flow: xtls-rprx-vision
+  security: tls
+  network: tcp
+- name: vless-1028233115
+  type: vless
+  server: 35.221.158.209
+  port: 32981
+  uuid: 41b96ee9-ee5e-455f-9753-187a9dead97a
+  flow: xtls-rprx-vision
+  security: tls
+  network: tcp
+- name: vless-1420437719
+  type: vless
+  server: jpzzqqnzdbgwhbhzsrgh.cfooov.xyz
+  port: 48179
+  uuid: 17ab31f7-c021-4aec-83b2-ab48de8886bd
+  flow: xtls-rprx-vision
+  security: tls
+  network: tcp
+- name: vless-1420437709
+  type: vless
+  server: jpzzqqnzdbgwhbhzsrgh.cfooov.xyz
+  port: 48948
+  uuid: 17ab31f7-c021-4aec-83b2-ab48de8886bd
   flow: xtls-rprx-vision
   security: tls
   network: tcp
@@ -550,6 +594,13 @@ proxies:
   uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   security: tls
   network: ws
+- name: vless-1387771288
+  type: vless
+  server: 104.18.39.218
+  port: 2086
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  security: tls
+  network: ws
 - name: vless-1400214021
   type: vless
   server: 172.64.42.85
@@ -596,6 +647,14 @@ proxies:
   security: tls
   skip-cert-verify: false
   network: ws
+- name: vless-1401227311
+  type: vless
+  server: 195.58.144.56
+  port: 11907
+  uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+  security: tls
+  skip-cert-verify: true
+  network: tcp
 - name: vless-1420437714
   type: vless
   server: xjpjus.jiedddym.com
@@ -604,13 +663,6 @@ proxies:
   flow: xtls-rprx-vision
   security: tls
   network: tcp
-- name: vless-1421505517
-  type: vless
-  server: 153.76.185.189
-  port: 3090
-  uuid: 5ebdc9ee-8b41-4487-93af-231cb0b47d60
-  security: tls
-  network: grpc
 - name: vless-1395251499
   type: vless
   server: 34.19.91.203
@@ -641,22 +693,13 @@ proxies:
   flow: xtls-rprx-vision
   security: tls
   network: tcp#3👝@oneclickvpnkeys
-- name: vless-1396642056
+- name: vless-1421505517
   type: vless
-  server: 195.58.144.56
-  port: 11907
-  uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+  server: 153.76.185.189
+  port: 3090
+  uuid: 5ebdc9ee-8b41-4487-93af-231cb0b47d60
   security: tls
-  skip-cert-verify: false
-  network: tcp
-- name: vless-984268591
-  type: vless
-  server: 51.81.203.63
-  port: 443
-  uuid: cb2dbb6a-a1ea-4023-9ace-6466cee57241
-  flow: xtls-rprx-vision
-  security: tls
-  network: tcp
+  network: grpc
 - name: vless-673684593
   type: vless
   server: 169.40.42.89
@@ -703,51 +746,6 @@ proxies:
   flow: xtls-rprx-vision
   security: tls
   network: tcp
-- name: vless-1403804692
-  type: vless
-  server: 5.78.159.97
-  port: 443
-  uuid: b88a54a0-501c-4acf-930b-305354452f4e
-  flow: xtls-rprx-vision
-  security: tls
-  network: tcp
-- name: vless-1403804696
-  type: vless
-  server: 62.238.103.54
-  port: 2083
-  uuid: d78de562-872e-43dd-be48-e9d7b06c87a3
-  flow: xtls-rprx-vision
-  security: tls
-  network: tcp
-- name: vless-1254039564
-  type: vless
-  server: 162.159.43.187
-  port: 80
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  security: tls
-  network: ws
-- name: vless-1268263936
-  type: vless
-  server: 172.64.229.170
-  port: 2095
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  security: tls
-  network: ws
-- name: vless-1003515436
-  type: vless
-  server: 172.67.156.147
-  port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  security: tls
-  skip-cert-verify: false
-  network: ws
-- name: vless-1260158035
-  type: vless
-  server: 162.159.48.32
-  port: 2082
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  security: tls
-  network: ws
 proxy-groups:
 - name: 🚀 每日免费
   type: select
@@ -786,12 +784,16 @@ proxy-groups:
   - shadowsocks-1422202982
   - trojan-856679830
   - trojan-1389056067
+  - trojan-1421449505
   - trojan-210032272
   - trojan-1423631959
   - trojan-1422194604
+  - trojan-1426049700
   - trojan-279496851
   - trojan-1423288732
+  - trojan-1425838925
   - trojan-1425248131
+  - trojan-1425475355
   - vless-1344232343
   - vless-1293658711
   - vless-1341665312
@@ -804,7 +806,6 @@ proxy-groups:
   - vless-12945896
   - vless-1075316560
   - vless-1396293493
-  - vless-1014144004
   - vless-1413491757
   - vless-1398795491
   - vless-611749779
@@ -813,6 +814,9 @@ proxy-groups:
   - vless-12945898
   - vless-622951488
   - vless-1228693561
+  - vless-1028233115
+  - vless-1420437719
+  - vless-1420437709
   - vless-1128668021
   - vless-1397144294
   - vless-1230573705
@@ -828,32 +832,26 @@ proxy-groups:
   - vless-1413435159
   - vless-1403803687
   - vless-1411400305
+  - vless-1387771288
   - vless-1400214021
   - vless-1425203285
   - vless-1419964163
   - vless-975967538
   - vless-1402402265
   - vless-1239076238
+  - vless-1401227311
   - vless-1420437714
-  - vless-1421505517
   - vless-1395251499
   - vless-1044848275
   - vless-1293637742
   - vless-1091570115
-  - vless-1396642056
-  - vless-984268591
+  - vless-1421505517
   - vless-673684593
   - vless-1409641547
   - vless-1403698678
   - vless-1365265785
   - vless-1331678641
   - vless-786340365
-  - vless-1403804692
-  - vless-1403804696
-  - vless-1254039564
-  - vless-1268263936
-  - vless-1003515436
-  - vless-1260158035
 - name: 🚀 自动最快
   type: url-test
   proxies:
@@ -889,12 +887,16 @@ proxy-groups:
   - shadowsocks-1422202982
   - trojan-856679830
   - trojan-1389056067
+  - trojan-1421449505
   - trojan-210032272
   - trojan-1423631959
   - trojan-1422194604
+  - trojan-1426049700
   - trojan-279496851
   - trojan-1423288732
+  - trojan-1425838925
   - trojan-1425248131
+  - trojan-1425475355
   - vless-1344232343
   - vless-1293658711
   - vless-1341665312
@@ -907,7 +909,6 @@ proxy-groups:
   - vless-12945896
   - vless-1075316560
   - vless-1396293493
-  - vless-1014144004
   - vless-1413491757
   - vless-1398795491
   - vless-611749779
@@ -916,6 +917,9 @@ proxy-groups:
   - vless-12945898
   - vless-622951488
   - vless-1228693561
+  - vless-1028233115
+  - vless-1420437719
+  - vless-1420437709
   - vless-1128668021
   - vless-1397144294
   - vless-1230573705
@@ -931,32 +935,26 @@ proxy-groups:
   - vless-1413435159
   - vless-1403803687
   - vless-1411400305
+  - vless-1387771288
   - vless-1400214021
   - vless-1425203285
   - vless-1419964163
   - vless-975967538
   - vless-1402402265
   - vless-1239076238
+  - vless-1401227311
   - vless-1420437714
-  - vless-1421505517
   - vless-1395251499
   - vless-1044848275
   - vless-1293637742
   - vless-1091570115
-  - vless-1396642056
-  - vless-984268591
+  - vless-1421505517
   - vless-673684593
   - vless-1409641547
   - vless-1403698678
   - vless-1365265785
   - vless-1331678641
   - vless-786340365
-  - vless-1403804692
-  - vless-1403804696
-  - vless-1254039564
-  - vless-1268263936
-  - vless-1003515436
-  - vless-1260158035
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
