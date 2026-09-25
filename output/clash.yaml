@@ -963,6 +963,7 @@ proxy-groups:
   tolerance: 50
 - name: 直达
   type: direct
+  proxies: []
 rules:
 - GEOIP,CN,直达,no-resolve
 - MATCH,🚀 自动最快

@@ -104,6 +104,7 @@ def build_config(
         {
             "name": "直达",
             "type": "direct",
+            "proxies": [],
         },
     ]
 
