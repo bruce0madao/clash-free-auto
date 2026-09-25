@@ -17,3 +17,7 @@ Thumbs.db
 # do NOT commit the real clash.yaml before the first real CI run? 
 # It is fine to commit the generated sample — CI only overwrites when
 # a new generation differs.
+
+mihomo_test/
+mihomo-windows-amd64.exe
+mihomo.zip
