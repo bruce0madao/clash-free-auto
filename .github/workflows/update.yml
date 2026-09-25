@@ -13,7 +13,7 @@ name: auto-update
 on:
   schedule:
     # every 6 hours, UTC
-    - cron: "0 */6 * * *"
+    - cron: "0 */24 * *"
   workflow_dispatch: {}
   # re-run on pushes so the pipeline also self-heals right after each commit
   push:
@@ -41,7 +41,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run pipeline
-        run: python -m src.main
+        run: CFA_NO_TCP=1 python -m src.main
 
       - name: Run tests
         run: python -m pytest -q
