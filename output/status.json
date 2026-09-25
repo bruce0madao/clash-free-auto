@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-24T21:17:18Z",
+  "updated_at": "2026-09-25T03:17:46Z",
   "sources_total": 5,
   "sources_success": 5,
   "sources_failed": 0,
-  "raw_nodes": 5961,
-  "parsed_nodes": 5958,
-  "deduplicated_nodes": 4240,
-  "validated_nodes": 4240,
+  "raw_nodes": 6040,
+  "parsed_nodes": 6037,
+  "deduplicated_nodes": 4260,
+  "validated_nodes": 4260,
   "validated_tcp": 155,
   "final_nodes": 100,
   "scores": [
