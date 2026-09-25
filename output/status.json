@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-09-25T04:24:05Z",
+  "updated_at": "2026-09-25T04:30:13Z",
   "sources_total": 5,
-  "sources_success": 1,
-  "sources_failed": 4,
-  "raw_nodes": 98,
-  "parsed_nodes": 98,
-  "deduplicated_nodes": 98,
-  "validated_nodes": 98,
+  "sources_success": 4,
+  "sources_failed": 1,
+  "raw_nodes": 4338,
+  "parsed_nodes": 4335,
+  "deduplicated_nodes": 3673,
+  "validated_nodes": 3673,
   "validated_tcp": 0,
-  "final_nodes": 98,
+  "final_nodes": 100,
   "scores": [
     40.0,
     40.0,
@@ -31,6 +31,5 @@
     40.0,
     40.0
   ],
-  "error": null,
-  "invalid_schema_nodes": 1
+  "error": null
 }

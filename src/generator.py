@@ -17,7 +17,7 @@ from .validator import schema_ok  # final safety gate
 
 log = logging.getLogger("cfa.generator")
 
-GROUP_NAMES = ["🚀 每日免费", "🚀 自动最快", "直达"]
+GROUP_NAMES = ["🚀 每日免费", "🚀 自动最快"]
 DEFAULT_MAX_IN_GROUP = 100
 
 
