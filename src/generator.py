@@ -97,7 +97,7 @@ def build_config(
         {
             "name": "🚀 每日免费",
             "type": "select",
-            "proxies": ["🚀 自动最快", "直达", *all_in],
+            "proxies": ["🚀 自动最快", *all_in],
         },
         {
             "name": "🚀 自动最快",
@@ -119,7 +119,7 @@ def build_config(
         {
             "name": "直达",
             "type": "direct",
-            "proxies": [],
+            "use": [],
         },
     ]
 

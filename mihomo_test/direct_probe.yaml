@@ -1,0 +1,8 @@
+mixed-port: 0
+proxies: []
+proxy-groups:
+- name: 直达
+  proxies: []
+  type: direct
+rules:
+- MATCH,直达

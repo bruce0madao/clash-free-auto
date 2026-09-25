@@ -1,0 +1,15 @@
+mixed-port: 0
+proxies: []
+proxy-groups:
+- method: chacha20-ietf-poly1305
+  name: X
+  password: x
+  port: 100
+  server: 1.1.1.1
+  type: ss
+- name: S
+  proxies:
+  - X
+  type: select
+rules:
+- MATCH,S
