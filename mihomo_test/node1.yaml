@@ -1,0 +1,20 @@
+allow-lan: false
+dns:
+  enable: false
+log-level: warning
+mixed-port: 18001
+mode: rule
+proxies:
+- name: trojan-856679737
+  password: tsuchiya
+  port: 443
+  server: aa.ccmusic.jp
+  skip-cert-verify: true
+  type: trojan
+proxy-groups:
+- name: P
+  proxies:
+  - trojan-856679737
+  type: select
+rules:
+- MATCH,P

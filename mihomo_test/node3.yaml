@@ -1,0 +1,22 @@
+allow-lan: false
+dns:
+  enable: false
+log-level: warning
+mixed-port: 18003
+mode: rule
+proxies:
+- flow: xtls-rprx-vision
+  name: vless-1461230181
+  network: tcp
+  port: 443
+  security: tls
+  server: jumpernode.online
+  type: vless
+  uuid: e4cd263b-c5c7-4410-bf61-8893179ec429
+proxy-groups:
+- name: P
+  proxies:
+  - vless-1461230181
+  type: select
+rules:
+- MATCH,P

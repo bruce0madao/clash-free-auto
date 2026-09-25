@@ -1,0 +1,21 @@
+allow-lan: false
+dns:
+  enable: false
+log-level: warning
+mixed-port: 18006
+mode: rule
+proxies:
+- name: vless-1472495165
+  network: tcp
+  port: 443
+  security: tls
+  server: 34.84.126.188
+  type: vless
+  uuid: 51a43b75-c84b-46eb-885e-c24e7819cd0b
+proxy-groups:
+- name: P
+  proxies:
+  - vless-1472495165
+  type: select
+rules:
+- MATCH,P

@@ -1,0 +1,21 @@
+allow-lan: false
+dns:
+  enable: false
+log-level: warning
+mixed-port: 18007
+mode: rule
+proxies:
+- name: vless-1343742641
+  network: raw
+  port: 2053
+  security: tls
+  server: 217.217.254.126
+  type: vless
+  uuid: cb15cce9-73ed-4928-b38c-462f0732cbe9
+proxy-groups:
+- name: P
+  proxies:
+  - vless-1343742641
+  type: select
+rules:
+- MATCH,P

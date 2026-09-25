@@ -1,0 +1,68 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+tproxy:
+  mode: tcp-only
+proxies:
+- name: HK-ss
+  type: ss
+  server: 1.1.1.1
+  port: 10443
+  method: chacha20-ietf-poly1305
+  cipher: chacha20-ietf-poly1305
+  password: abc
+- name: US-trojan
+  type: trojan
+  server: 2.2.2.2
+  port: 443
+  password: dead
+  sni: us.example.com
+proxy-groups:
+- name: 🚀 每日免费
+  type: select
+  proxies:
+  - 🚀 自动最快
+  - 直达
+  - HK-ss
+  - US-trojan
+- name: 🚀 自动最快
+  type: url-test
+  proxies:
+  - HK-ss
+  - US-trojan
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🤖 AI 专用
+  type: url-test
+  proxies:
+  - US-trojan
+  url: https://chat.openai.com/
+  interval: 600
+  tolerance: 100
+- name: 直达
+  type: direct
+  proxies: []
+rules:
+- GEOIP,CN,直达,no-resolve
+- DOMAIN-KEYWORD,openai,🤖 AI 专用
+- DOMAIN-KEYWORD,chatgpt,🤖 AI 专用
+- DOMAIN-KEYWORD,anthropic,🤖 AI 专用
+- DOMAIN-KEYWORD,claude,🤖 AI 专用
+- DOMAIN-KEYWORD,ai,🤖 AI 专用
+- MATCH,🚀 自动最快
+dns:
+  enabled: true
+  listen: 127.0.0.1:5353
+  nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  - 1.1.1.1
+  fallback:
+  - https://dns.google/dns-query
+  fallback-filter:
+    geoip: true
+    ipcidr:
+    - 223.5.5.5/32

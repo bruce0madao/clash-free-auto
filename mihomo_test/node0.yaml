@@ -1,0 +1,21 @@
+allow-lan: false
+dns:
+  enable: false
+log-level: warning
+mixed-port: 18000
+mode: rule
+proxies:
+- name: trojan-1422194604
+  password: 3c6d1933-b22a-484b-ac8a-63e24f5fba75
+  port: 443
+  server: jp3.998998.best
+  skip-cert-verify: true
+  sni: nat11.outsidemyheart.space
+  type: trojan
+proxy-groups:
+- name: P
+  proxies:
+  - trojan-1422194604
+  type: select
+rules:
+- MATCH,P

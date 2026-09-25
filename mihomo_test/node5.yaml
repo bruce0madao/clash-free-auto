@@ -1,0 +1,22 @@
+allow-lan: false
+dns:
+  enable: false
+log-level: warning
+mixed-port: 18005
+mode: rule
+proxies:
+- flow: xtls-rprx-vision
+  name: vless-1489771574
+  network: tcp
+  port: 443
+  security: tls
+  server: 103.137.215.122
+  type: vless
+  uuid: ea1c1e20-7263-4b08-a01b-690b29af66b3
+proxy-groups:
+- name: P
+  proxies:
+  - vless-1489771574
+  type: select
+rules:
+- MATCH,P

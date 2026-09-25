@@ -86,6 +86,13 @@ def build_config(
     all_in = list(names)
     auto_proxy = all_in if all_in else []
 
+    # AI-specific group: prefer trojan/vless with CF domain or SNI (less likely datacenter)
+    ai_proxies = [p for p in proxy_dicts if p.get("type") in ("trojan","vless") and (p.get("sni") or p.get("ws-headers",{}).get("Host",""))]
+    if ai_proxies:
+        ai_names = [p["name"] for p in ai_proxies]
+    else:
+        ai_names = []
+    
     groups = [
         {
             "name": "🚀 每日免费",
@@ -100,6 +107,14 @@ def build_config(
             "url": "http://www.gstatic.com/generate_204",
             "interval": 300,
             "tolerance": 50,
+        },
+        {
+            "name": "🤖 AI 专用",
+            "type": "url-test",
+            "proxies": ai_names or auto_proxy,
+            "url": "https://chat.openai.com/",
+            "interval": 600,
+            "tolerance": 100,
         },
         {
             "name": "直达",
@@ -121,6 +136,12 @@ def build_config(
         # "DOMAIN-SUFFIX,claude.ai,SELECT",
         # "DOMAIN-SUFFIX,x.com,SELECT",
         # "DOMAIN-SUFFIX,github.com,SELECT",
+        # AI sites via dedicated group (avoids datacenter IP blocks)
+        "DOMAIN-KEYWORD,openai,🤖 AI 专用",
+        "DOMAIN-KEYWORD,chatgpt,🤖 AI 专用",
+        "DOMAIN-KEYWORD,anthropic,🤖 AI 专用",
+        "DOMAIN-KEYWORD,claude,🤖 AI 专用",
+        "DOMAIN-KEYWORD,ai,🤖 AI 专用",
         "MATCH,🚀 自动最快",
     ]
 

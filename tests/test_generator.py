@@ -52,11 +52,12 @@ def test_build_config_structure():
     assert "rules" in cfg
     assert "dns" in cfg
     names = [g["name"] for g in cfg["proxy-groups"]]
-    # group names are localized (每日免费 / 自动最快 / 直达) — assert all three present
-    assert len(names) == 3
+    # group names are localized (每日免费 / 自动最快 / 直达 / AI专用) — assert all four present
+    assert len(names) == 4
     assert any("每日免费" in n for n in names)
     assert any("自动最快" in n for n in names)
     assert any("直达" in n for n in names)
+    assert any("AI" in n for n in names)
 
 
 def test_internal_keys_stripped():
