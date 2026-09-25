@@ -116,11 +116,6 @@ def build_config(
             "interval": 600,
             "tolerance": 100,
         },
-        {
-            "name": "直达",
-            "type": "direct",
-            "use": [],
-        },
     ]
 
     # reserved rules for common services — kept off by default (commented),
@@ -128,7 +123,7 @@ def build_config(
     # GEOIP,CN,DIRECT  is a single rule; below it we add placeholders
     # that can be uncommented to route specific domains via AUTO.
     rules = [
-        "GEOIP,CN,直达,no-resolve",
+        "GEOIP,CN,🚀 每日免费,no-resolve",
         # "DOMAIN-SUFFIX,google.com,SELECT",
         # "DOMAIN-SUFFIX,openai.com,SELECT",
         # "DOMAIN-SUFFIX,chatgpt.com,SELECT",
